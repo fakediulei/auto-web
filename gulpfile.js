@@ -24,7 +24,8 @@ gulp.task('templates',function(){
 gulp.task('watch',function(){
   gulp.watch('./src/less/*.less',['styles']);
   gulp.watch('./src/coffee/*.coffee',['scripts']);
-  gulp.watch('./views/*.pug',['templates']);
+  gulp.watch('./views/**/*.pug',['templates']);
+  gulp.watch('./gulpfile.js',['watch']); 
 })
 gulp.task('default',function(){
 	//place code for your default task here
