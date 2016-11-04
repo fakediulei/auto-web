@@ -2,7 +2,7 @@ var gulp = require('gulp'),
 	less = require('gulp-less'),
 	sourcemaps=require('gulp-sourcemaps'),
 	coffee = require('gulp-coffee'),
-	jade = require('gulp-jade');
+	pug = require('gulp-pug');
 
 gulp.task('styles',function(){
 	 gulp.src('./src/less/*.less')
@@ -17,14 +17,14 @@ gulp.task('scripts',function(){
     .pipe(gulp.dest('./dist/js'))
 });
 gulp.task('templates',function(){
-	 gulp.src('./views/*.jade')
-    .pipe(jade())
+	 gulp.src('./views/*.pug')
+    .pipe(pug())
     .pipe(gulp.dest('./'))
 });
 gulp.task('watch',function(){
   gulp.watch('./src/less/*.less',['styles']);
   gulp.watch('./src/coffee/*.coffee',['scripts']);
-  gulp.watch('./views/*.jade',['templates']);
+  gulp.watch('./views/*.pug',['templates']);
 })
 gulp.task('default',function(){
 	//place code for your default task here
