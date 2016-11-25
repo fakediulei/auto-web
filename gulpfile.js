@@ -23,7 +23,7 @@ gulp.task('scripts_min',function(){
     .pipe(coffee())
     .pipe(uglyfly())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('./dist/min/js'))
+    .pipe(gulp.dest('./dist/js'))
 });
 gulp.task('templates',function(){
 	 gulp.src('./views/*.pug')
