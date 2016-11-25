@@ -2,6 +2,8 @@ var gulp = require('gulp'),
 	less = require('gulp-less'),
 	sourcemaps=require('gulp-sourcemaps'),
 	coffee = require('gulp-coffee'),
+	uglyfly = require('gulp-uglyfly'),
+	rename = require('gulp-rename'),
 	pug = require('gulp-pug');
 
 gulp.task('styles',function(){
@@ -14,6 +16,8 @@ gulp.task('styles',function(){
 gulp.task('scripts',function(){
 	 gulp.src('./src/coffee/*.coffee')
     .pipe(coffee())
+    .pipe(uglyfly())
+    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('./dist/js'))
 });
 gulp.task('templates',function(){
