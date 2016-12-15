@@ -1,10 +1,12 @@
 (function() {
-  var hello;
+  var cube, square;
 
-  hello = function() {
-    return console.log("your coffee is work");
+  square = function(x) {
+    return x * x;
   };
 
-  hello();
+  cube = function(x) {
+    return square(x) * x;
+  };
 
 }).call(this);

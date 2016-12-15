@@ -1,3 +1,2 @@
-hello = ()->
-    console.log("your coffee is work")
-hello() 
+square = (x) -> x * x
+cube   = (x) -> square(x) * x

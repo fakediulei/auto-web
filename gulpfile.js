@@ -3,6 +3,7 @@ var gulp = require('gulp'),
 	sourcemaps=require('gulp-sourcemaps'),
 	coffee = require('gulp-coffee'),
 	uglyfly = require('gulp-uglyfly'),
+	ejs =require('gulp-ejs'),
 	rename = require('gulp-rename'),
 	pug = require('gulp-pug');
 
@@ -30,6 +31,13 @@ gulp.task('templates',function(){
     .pipe(pug())
     .pipe(gulp.dest('./'))
 });
+gulp.task('templates2',function(){
+	 gulp.src('./views2/*.ejs')
+    .pipe(ejs(null,{
+    	ext:'.html'
+    }))
+    .pipe(gulp.dest('./views2'))
+});
 gulp.task('watch',function(){
   gulp.watch('./src/less/*.less',['styles']);
   gulp.watch('./src/coffee/*.coffee',['scripts','scripts_min']);
@@ -38,5 +46,5 @@ gulp.task('watch',function(){
 })
 gulp.task('default',function(){
 	//place code for your default task here
-	gulp.start('styles','scripts','scripts_min','templates');
+	gulp.start('styles','scripts','scripts_min','templates','templates2');
 });
