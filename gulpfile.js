@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
 	less = require('gulp-less'),
+	sass = require('gulp-sass'),
 	sourcemaps=require('gulp-sourcemaps'),
 	coffee = require('gulp-coffee'),
 	uglyfly = require('gulp-uglyfly'),
@@ -11,6 +12,13 @@ gulp.task('styles',function(){
 	 gulp.src('./src/less/*.less')
 	 .pipe(sourcemaps.init())
     .pipe(less())
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./dist/css'))
+});
+gulp.task('sass',function(){
+	 gulp.src('./src/sass/*.scss')
+	 .pipe(sourcemaps.init())
+    .pipe(sass())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist/css'))
 });
